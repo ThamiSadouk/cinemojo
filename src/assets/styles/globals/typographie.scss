@@ -1,0 +1,28 @@
+@use '../util' as *;
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+span,
+a,
+li,
+p {
+  font-size: rem(14);
+
+  @include breakpoint(medium) {
+    font-size: rem(14);
+  }
+}
+
+.h1 {
+  font-size: rem(36);
+}
