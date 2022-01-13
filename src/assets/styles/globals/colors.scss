@@ -15,3 +15,8 @@
   --lightgrey5: hsl(0deg 0% 98%);
   --greydarken4: hsl(0deg 0% 13%);
 }
+
+.primary {
+  background-color: var(--teal);
+  color: white;
+}

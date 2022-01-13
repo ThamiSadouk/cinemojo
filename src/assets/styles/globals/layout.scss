@@ -1,1 +1,22 @@
 @use '../util' as *;
+
+#app {
+  background-color: var(--lightgrey5);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  max-width: 600px;
+  background-color: white;
+  padding: 3.5em;
+  border-radius: 5%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  margin-top: rem(40);
+}

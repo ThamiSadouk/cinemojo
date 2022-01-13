@@ -1,0 +1,9 @@
+@use '../util' as *;
+
+.btn {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 2.5rem;
+  align-items: center;
+  cursor: pointer;
+}
