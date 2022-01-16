@@ -1,16 +1,22 @@
 <template>
   <div class="game-over">
-      <h1>Game Over</h1>
+      <h2>Game Over</h2>
       <p>Time out!</p>
-      <p>Your total score is 1745</p>
+      <p>Your total score is {{ score }}</p>
+      <button @click="this.$emit('startQuizz')" class="btn primary">Retry</button>
   </div>
 </template>
 
 <script>
-// import { mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-  name: 'GameOver'
-
+  name: 'GameOver',
+  props: {
+    method: { type: Function }
+  },
+  computed: {
+    ...mapState(['score'])
+  }
 }
 </script>

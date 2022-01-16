@@ -8,7 +8,7 @@
         :key="key"
         :class="{'hover' : selectedAnswer == '' ,
           'incorrect' : selectedAnswer == key && key != questions[index]['correctAnswer'],
-          'correct' : key == questions[index]['correctAnswer'] && selectedAnswer != ''}"
+          'correct' : selectedAnswer == key && key == questions[index]['correctAnswer']}"
       >
         <input
           type="radio"
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+
+import { mapState, mapMutations } from 'vuex'
 
 /*
  - get popular movies name, actors name
@@ -59,9 +61,12 @@ export default {
     // on click start, call get movies async and display loader
     this.getMovies()
   },
-
+  computed: {
+    ...mapState(['score'])
+  },
   // TODO set timeout
   methods: {
+    ...mapMutations(['INCREASE_SCORE']),
     // call API to get movies and actors name
     getMovies () {
       fetch('https://api.themoviedb.org/3/person/popular?api_key=8c2a93499a472cb809642a696e25a0a6', {
@@ -147,7 +152,18 @@ export default {
       this.questionsReady = true
     },
     answered (e) {
+      console.log(e.target.value)
+      console.log(this.questions[this.index].correctAnswer)
       this.selectedAnswer = e.target.value
+
+      // check if correct Answer
+      if (e.target.value === this.questions[this.index].correctAnswer) {
+        console.log('is correct')
+        // increase score
+        this.INCREASE_SCORE()
+        console.log(this.score)
+      }
+
       this.nextQuestion()
     },
     nextQuestion () {

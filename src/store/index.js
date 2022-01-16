@@ -2,29 +2,43 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    count: 60,
+    welcome: true,
+    quizz: false,
+    gameOver: false,
+    count: '',
+    defaultCount: 5,
     score: 0
   },
   mutations: {
-    /*
-      Create countdown function :
-      - créer startTimer depuis welcome et le créer dans store / ok
-      - total countdown 1min / ok
-      - trigger on click start button / ok
-      - when count = 0, disable answers and show
-      - when countdown is over => goToGameover /
-    */
-    COUNTDOWN (state) {
+    TOGGLE_WELCOME (state) {
+      state.welcome = !state.welcome
+    },
+    TOGGLE_QUIZZ (state) {
+      state.quizz = !state.quizz
+    },
+    TOGGLE_GAMEOVER (state) {
+      state.gameOver = !state.gameOver
+    },
+    RESET_TIMER (state) {
+      state.count = state.defaultCount
+    },
+    INCREASE_SCORE (state) {
+      state.score += 10
+    }
+  },
+  actions: {
+    COUNTDOWN ({ commit, state }) {
+      commit('RESET_TIMER')
       const timer = setInterval(() => {
         state.count--
+        // Game Over when time is 0
         if (state.count === 0) {
-          // goToGameOverpage
+          commit('TOGGLE_GAMEOVER')
+          commit('TOGGLE_QUIZZ')
           clearInterval(timer)
         }
       }, 1000)
     }
-  },
-  actions: {
   },
   modules: {
   }
