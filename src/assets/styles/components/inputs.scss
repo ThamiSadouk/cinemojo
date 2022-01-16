@@ -1,0 +1,19 @@
+@use '../util' as *;
+
+label {
+  display: block;
+  border: 1px solid var(--lightgrey1);
+  border-radius: 2.5rem;
+  max-width: 10em;
+  margin: rem(40) auto 0 auto;
+}
+
+label.hover:hover {
+  cursor: pointer;
+  background-color: var(--lightgrey5);
+}
+
+input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}

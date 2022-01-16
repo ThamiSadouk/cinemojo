@@ -12,11 +12,18 @@
 }
 
 .board {
-  max-width: 600px;
+  width: 600px;
   background-color: white;
   padding: 3.5em;
   border-radius: 5%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   margin: 0 auto;
   margin-top: rem(40);
+
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(60);
 }
