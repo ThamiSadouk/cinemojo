@@ -152,16 +152,11 @@ export default {
       this.questionsReady = true
     },
     answered (e) {
-      console.log(e.target.value)
-      console.log(this.questions[this.index].correctAnswer)
       this.selectedAnswer = e.target.value
 
       // check if correct Answer
       if (e.target.value === this.questions[this.index].correctAnswer) {
-        console.log('is correct')
-        // increase score
         this.INCREASE_SCORE()
-        console.log(this.score)
       }
 
       this.nextQuestion()

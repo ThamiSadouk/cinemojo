@@ -3,7 +3,10 @@
     <h1>CineMojo</h1>
     <div class="board">
       <div v-show="infos" class="infos">
-        <span class="score">Mojo: {{ score }}</span>
+        <div class="infos__score">
+          <span class="score">Highscore: {{ highscore }}</span>
+          <span class="score">Mojo: {{ score }}</span>
+        </div>
         <span class="timer">Time left: {{ count }}</span>
       </div>
       <Welcome v-show="$store.state.welcome" @startQuizz="startQuizz" />
@@ -32,10 +35,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['welcome', 'gameOver', 'count', 'score'])
+    ...mapState(['welcome', 'gameOver', 'count', 'score', 'highscore'])
   },
   methods: {
-    ...mapMutations(['TOGGLE_WELCOME', 'TOGGLE_QUIZZ', 'TOGGLE_GAMEOVER']),
+    ...mapMutations(['TOGGLE_WELCOME', 'TOGGLE_QUIZZ', 'TOGGLE_GAMEOVER', 'RESET_SCORE']),
     ...mapActions(['COUNTDOWN']),
     startQuizz () {
       if (this.welcome) { // if welcome = true => toggle to false
@@ -45,6 +48,7 @@ export default {
         this.TOGGLE_GAMEOVER()
       }
       this.TOGGLE_QUIZZ()
+      this.RESET_SCORE()
       this.startTimer()
     },
     startTimer () {

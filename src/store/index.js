@@ -6,8 +6,9 @@ export default createStore({
     quizz: false,
     gameOver: false,
     count: '',
-    defaultCount: 5,
-    score: 0
+    defaultCount: 10,
+    score: 0,
+    highscore: 0
   },
   mutations: {
     TOGGLE_WELCOME (state) {
@@ -22,6 +23,9 @@ export default createStore({
     RESET_TIMER (state) {
       state.count = state.defaultCount
     },
+    RESET_SCORE (state) {
+      state.score = 0
+    },
     INCREASE_SCORE (state) {
       state.score += 10
     }
@@ -31,10 +35,15 @@ export default createStore({
       commit('RESET_TIMER')
       const timer = setInterval(() => {
         state.count--
-        // Game Over when time is 0
+        // Game Over when time is up
         if (state.count === 0) {
           commit('TOGGLE_GAMEOVER')
           commit('TOGGLE_QUIZZ')
+          // update highscore
+          if (state.score > state.highscore) {
+            console.log(state.highscore)
+            state.highscore = state.score
+          }
           clearInterval(timer)
         }
       }, 1000)
