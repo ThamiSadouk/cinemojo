@@ -1,6 +1,5 @@
 <template>
   <div class="home text-center">
-    <h1>CineMojo</h1>
     <div class="board">
       <div v-show="infos" class="infos">
         <div class="infos__score">

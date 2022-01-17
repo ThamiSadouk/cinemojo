@@ -6,26 +6,57 @@
 
 .app {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  @include breakpoint(large) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.home {
+  @include breakpoint(large) {
+    margin-top: 0;
+  }
 }
 
 .board {
-  width: 600px;
-  background-color: white;
-  padding: 3.5em;
-  border-radius: 5%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 90%;
   margin: 0 auto;
-  margin-top: rem(40);
+  background-color: var(--lightgrey5);
+  color: var(--greydarken);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 
+  @include breakpoint(large) {
+    height: 440px;
+    margin-top: rem(40);
+    padding: rem(40);
+    width: 600px;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
 }
 
 .infos {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: rem(60);
+  justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  border-radius: 0 0 rem(20) rem(20);
+  padding: rem(20) 0 rem(20) 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  @include breakpoint(large) {
+    margin-bottom: rem(60);
+  }
 
   .infos__score {
     display: flex;
@@ -34,8 +65,27 @@
   }
 }
 
-.quizz__image img {
-  width: 150px;
-    height: 150px;
-    object-fit: contain;
+.quizz__image {
+  width: 125px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid hsl(0deg 0% 91%);
+  margin: 0 auto;
+}
+
+.confettis {
+  width: 400px;
+  pointer-events: none;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+
+  @include breakpoint(large) {
+    left: 35%;
+    bottom: 0;
+  }
+
+
 }

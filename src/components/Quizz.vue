@@ -2,11 +2,7 @@
   <div class="quizz" v-if="questionsReady">
     <div class="input">
       <p>{{ questions[index]['question'] }}</p>
-      <figure class="quizz__image">
-        <picture>
-          <img :srcset="questions[index]['actorImage']" alt="">
-        </picture>
-      </figure>
+      <div class="quizz__image" :style="{ backgroundImage: 'url('+ questions[index]['actorImage'] +')' }" ></div>
       <label
         :for="key"
         v-for="(answer, key) in questions[index]['answers']"
@@ -141,7 +137,6 @@ export default {
           .then(data => {
             if (data.profiles.length > 0 && 'profiles' in data) {
               e.actorImage = 'https://image.tmdb.org/t/p/w400' + data.profiles[0].file_path
-              console.log(e.actorImage)
             } else {
               // if we don't find an image we delete the questions that correspond to the actor
               this.questions.splice(this.questions.findIndex(v => v.actorId === e.actorId), 1)

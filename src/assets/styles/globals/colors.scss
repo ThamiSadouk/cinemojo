@@ -1,30 +1,43 @@
 :root {
   --red: hsl(4deg 90% 58%);
+  --lightred5: hsl(351, 100%, 96%);
   --pink: hsl(340deg 82% 52%);
   --purple: hsl(291deg 64% 42%);
   --deeppurple: hsl(261deg 51% 47%);
   --indigo: hsl(243deg 42% 50%);
   --blue: hsl(243deg 42% 50%);
+  --darkblue: hsl(228deg 41% 19%);
   --lightblue: hsl(199deg 98% 48%);
   --cyan: hsl(187deg 99% 42%);
   --teal: hsl(174deg 100% 29%);
   --green: hsl(122deg 39% 49%);
   --bluegrey: hsl(200deg 18% 46%);
+  --lightbluegrey5: #ECEFF1;
+  --lightbluegrey4: #CFD8DC;
+  --lightbluegrey3: #B0BEC5;
+  --lightbluegrey2: #90A4AE;
+  --lightbluegrey1: #78909C;
   --grey: hsl(0deg 0% 62%);
-  --lightgrey1: hsl(0deg 0% 74%);
+  --lightgrey1: hsl(0, 0%, 74%);
   --lightgrey5: hsl(0deg 0% 98%);
   --greydarken4: hsl(0deg 0% 13%);
 }
 
 .primary {
-  background-color: var(--teal);
+  background-color: var(--greydarken4);
   color: white;
 }
 
 .correct {
-  background-color: var(--green);
+  border: 2px solid var(--green);
+  color: var(--green);
 }
 
 .incorrect {
-  background-color: var(--red);
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+
+.red {
+  color: var(--red);
 }

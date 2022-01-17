@@ -8,7 +8,8 @@ export default createStore({
     count: '',
     defaultCount: 10,
     score: 0,
-    highscore: 0
+    highscore: 0,
+    confettis: false
   },
   mutations: {
     TOGGLE_WELCOME (state) {
@@ -28,7 +29,11 @@ export default createStore({
     },
     INCREASE_SCORE (state) {
       state.score += 10
+    },
+    TOGGLE_CONFETTIS (state) {
+      state.confettis = !state.confettis
     }
+
   },
   actions: {
     COUNTDOWN ({ commit, state }) {
@@ -41,8 +46,8 @@ export default createStore({
           commit('TOGGLE_QUIZZ')
           // update highscore
           if (state.score > state.highscore) {
-            console.log(state.highscore)
             state.highscore = state.score
+            commit('TOGGLE_CONFETTIS')
           }
           clearInterval(timer)
         }

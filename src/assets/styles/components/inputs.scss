@@ -2,10 +2,13 @@
 
 label {
   display: block;
-  border: 1px solid var(--lightgrey1);
-  border-radius: 2.5rem;
-  max-width: 10em;
+  background-color: white;
+  border: 1px solid var(--lightbluegrey5);
+  border-radius: 1rem;
+  max-width: 18em;
   margin: rem(40) auto 0 auto;
+  padding: 1em 1.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 label.hover:hover {

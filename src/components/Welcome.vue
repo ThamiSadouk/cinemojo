@@ -1,6 +1,7 @@
 <template>
-  <div v-show="$store.state.welcome" class="welcome">
-    <p>
+  <div v-show="$store.state.welcome">
+    <h1>CineMojo</h1>
+    <p class="welcome">
       Welcome to the quizz ! <br>
       You'll be asked a series of "Yes or No" questions. <br>
       Answer as many as you can in {{ defaultCount }} seconds ! <br>
