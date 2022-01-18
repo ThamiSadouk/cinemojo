@@ -1,0 +1,5 @@
+@use '../util' as *;
+
+.animate__animated.animate__fadeIn, .animate__animated.animate__fadeIOut {
+  --animate-duration: 0.3s;
+}

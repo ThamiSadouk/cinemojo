@@ -1,19 +1,20 @@
 <template>
-  <div v-show="$store.state.welcome">
-    <h1>CineMojo</h1>
-    <p class="welcome">
-      Welcome to the quizz ! <br>
-      You'll be asked a series of "Yes or No" questions. <br>
-      Answer as many as you can in {{ defaultCount }} seconds ! <br>
-      Good luck !
-    </p>
-    <button @click="this.$emit('startQuizz')" class="btn primary">Start</button>
-  </div>
+    <div>
+      <h1>CineMojo</h1>
+      <p class="welcome">
+        Welcome to the quizz ! <br><br>
+        You'll be asked a series of <br>
+        "Yes or No" questions. <br>
+        Answer as many as you can in <br>
+        {{ defaultCount }} seconds ! <br>
+      </p>
+      <button @click="TOGGLE_QUIZZ(); START_COUNTDOWN()" class="btn primary">Start</button>
+    </div>
 </template>
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'Welcome',
@@ -22,6 +23,10 @@ export default {
   },
   computed: {
     ...mapState(['defaultCount'])
+  },
+  methods: {
+    ...mapActions(['START_COUNTDOWN']),
+    ...mapMutations(['TOGGLE_QUIZZ'])
   }
 }
 </script>
